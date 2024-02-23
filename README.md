@@ -1,5 +1,5 @@
 # proyectobase-serenityrest
-
+Proyecto donde hacemos uso de Serenity Rest para la automatización de servicios REST usando el patrón de ScreenPlay
 
 
 ## Getting started
