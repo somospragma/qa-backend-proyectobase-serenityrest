@@ -1,92 +1,182 @@
-# proyectobase-serenityrest
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://f.hubspotusercontent20.net/hubfs/2829524/Copia%20de%20LOGOTIPO_original-2.png"></a>
+  <br>
+  Nombre del Proyecto
+  <br>
+</h1>
+
+<h4 align="center">Proyecto base de serenityrest<a href="https://github.com/karatelabs/karate" target="_blank">Pragma</a>.</h4>
+
+De aca en adelante encontraras las partes del readme con un pequeño ejemplo dentro de cada una de ellas, actualiza su contenido (no olvides borrar esta línea)
+
+<p align="center">
+  <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">
+    <img src="https://img.shields.io/badge/Java-11+-orange.svg" alt="Java">
+  </a>
+  <a href="https://www.mysql.com/">
+    <img src="https://img.shields.io/badge/Database-MySQL-blue.svg" alt="MySQL">
+  </a>
+  <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/Database-PostgreSQL-blue.svg" alt="PostgreSQL">
+  </a>
+  <a href="https://www.w3schools.com/sql/">
+    <img src="https://img.shields.io/badge/SQL-Fundamentals-lightgrey.svg" alt="SQL">
+  </a>
+  <a href="https://cucumber.io/">
+    <img src="https://img.shields.io/badge/Cucumber-BDD-green.svg" alt="Cucumber">
+  </a>
+  <a href="https://serenity-bdd.info/">
+    <img src="https://img.shields.io/badge/Serenity-Reporting-blueviolet.svg" alt="Serenity">
+  </a>
+  <a href="https://www.selenium.dev/">
+    <img src="https://img.shields.io/badge/Selenium-Web_Testing-brightgreen.svg" alt="Selenium">
+  </a>
+</p>
+
 Proyecto donde hacemos uso de Serenity Rest para la automatización de servicios REST usando el patrón de ScreenPlay
 
+<p align="center">
+  <a href="#topicos">Topicos</a> •
+  <a href="#tecnologias">Tecnologias</a> •
+  <a href="#consideraciones">Consideraciones</a> •
+  <a href="#descarga">Descarga</a> •
+  <a href="#instalación-y-ejecución">Instalación y ejecución</a> •
+  <a href="#autores">Autores</a> •
+  <a href="#relacionados">Relacionados</a> •
+  <a href="#roadmap">Roadmap</a>
+</p>
 
-## Getting started
+El siguiente GIF es de ejemplo, si tienes uno propio reemplazalo, de lo contrario eliminalo.
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Topicos
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+* Java
+* Bases de datos
+* SQL
+* Cucumber
+* Serenity
+* Selenium
 
-## Add your files
+## Tecnologias
+### This project required:
+- [JDK java] version 16
+- [Serenity] version 4
+- [Gradle] last version
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Nota: 
+*   Se requiere Selenium posterior a la version 4.11 para la descarga automatica de algunos drivers de los navegadores
+    La version de Serenity implementada (4.0.0) ya incluye Selenium 4.12 lo cual soporta los navegadores a Octubre del 2023
+    si el proyecto presenta problemas relacionados a las version del driver descargado de forma automatica y la version de su 
+    navegador vale la pena revisar que este trabajando con versiones recientes de Serenity y checkear las versiones de Selenium
+    incluidas en dicha version de Serenity
+*   Con Selenium Manager incluido en Serenity 4.0.0 ya no se requiere WebDriverManager de Boni Garcia, razon por la cual ya
+    serenity no lo incluye dentro de sus dependencias
+
+## Consideraciones
+- Para hacer uso de la la utilidad de Base de Datos es importante 
+        que se instacie una Base de datos y se configura en el archivo de configuración ubicado en:
+
+            ./src/main/resources/configs/congig.properties
+
+        En las dependencias del proyecto esta agregada la dependencia del driver de MySQL, si no 
+        desea realizar mayores ajustes respecto al motor de BD use MySQL. Si desea usar otro motor, 
+        adiciones la dependencia del driver al build.gradle y configure este driver como observa 
+        se realizo para MySQL en: 
+    
+            ./src/main/java/utils/ConectionBD.java
+        
+        Nota: Algunos motores de BD no requieren agregar la dependencia del driver como Oracle o MSserver
+
+## Descarga
+Para clonar está aplicación desde la linea de comando:
+
+```bash
+git clone https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java
+cd qa-transversal-proyecto-base-manejo-base-de-datos-java
+git remote remove origin
+git remote add origin URL_DE_TU_NUEVO_REPOSITORIO
+git push -u origin master
+```
+Nota: Asegúrate de reemplazar URL_DE_TU_NUEVO_REPOSITORIO con la URL del repositorio que creaste en tu cuenta de GitHub.
+
+Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java) 
+
+## Instalación y ejecución
+
+Para ejecutar está aplicación, necesitas [Gradle](https://gradle.org/install) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) instalados en tu equipo, ten en cuenta que tu IDE puede gestionar la instalación de estos dos requerimientos. Desde la linea de comando:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/calidad_de_software/proyectobase-serenityrest.git
-git branch -M main
-git push -uf origin main
+gradle clean build
 ```
 
-## Integrate with your tools
+##  🛠️ Run tests Chrome gradle:
+```
+gradle clean test -Dcontext=chrome -Dwebdriver.driver=chrome
+gradle clean test --info --stacktrace --tests "ruta.nameRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
+gradle clean test -Dcucumber.options="--tags @someTag" -Dcontext=chrome -Dwebdriver.driver=chrome
+gradle clean test -Dcucumber.options="--tags '@someTag or @someTag'" -Dcontext=chrome -Dwebdriver.driver=chrome
+```
 
-- [ ] [Set up project integrations](https://gitlab.com/calidad_de_software/proyectobase-serenityrest/-/settings/integrations)
+Nota:
 
-## Collaborate with your team
+*   Si ejecuta en la consola de gradle no debe usar comillas simples '...' para encerrar '-Dwebdriver.driver=chrome'
+*   Si ejecuta en la consola estándar de la máquina quizás si deba utilizar '...' en las porciones del comando que incluyan puntos
+*   Con "./gradlew test ..." ejecuta el gradle compilado del proyecto
+*   Con "gradle test ..." ejecuta el gradle de su maquina, el configurado en las variables de entorno de su sistema operativo
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
+### ejemplo
+```
+./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.CompareImageRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
+./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
+```
 
-Use the built-in continuous integration in GitLab.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+##  🛠️ Run tests Firefox gradle:
+```
+./gradlew clean test -Dcontext=firefox '-Dwebdriver.driver=firefox'
+./gradlew test --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
+```
+### ejemplo
+```
+./gradlew clean test --info --stacktrace --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
+```
 
-***
+## **Run tests in different environments:**
+```
+gradle command... -Denvironment=defaul
+gradle command... -Denvironment=dev
+gradle command... -Denvironment=qa
+gradle command... -Denvironment=prod
+```
+### Note: 
+    - The default environment will be used if no other value is provided
+    - Could modify the environment urls in .../test/resources/serenity.conf
 
-# Editing this README
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## **Run tests in different browser:**
+```
+gradle command... -Dwebdriver.driver=chrome
+gradle command... -Dwebdriver.driver=firefox
+gradle command... -Dwebdriver.driver=edge
+```
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
 
-## Name
-Choose a self-explaining name for your project.
+## Autores
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+| [<img src="https://gitlab.com/uploads/-/system/user/avatar/13437423/avatar.png?width=400" width=115><br><sub>Mauro L. Ibarra P.</sub>](https://gitlab.com/mauro.ibarrap) <br/> | [<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Otro autor</sub>](https://gitlab.com/) | 
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Relacionados
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+- [proyecto-base-serenity-bdd-screenplay-browsers-and-utilities](https://github.com/somospragma/qa-web-proyecto-base-serenity-bdd-screenplay-browsers-and-utilities)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- [Guia QA](https://github.com/amitmerchant1990/pomolectron) - (En construcción) Una guia de proyectos Orientados a la Calidad de Software
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
