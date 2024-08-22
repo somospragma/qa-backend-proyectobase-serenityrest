@@ -2,11 +2,11 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://f.hubspotusercontent20.net/hubfs/2829524/Copia%20de%20LOGOTIPO_original-2.png"></a>
   <br>
-  Nombre del Proyecto
+  Proyecto base de serenityrest
   <br>
 </h1>
 
-<h4 align="center">Proyecto base de serenityrest<a href="https://github.com/karatelabs/karate" target="_blank">Pragma</a>.</h4>
+<h4 align="center">Proyecto base de <a href="https://github.com/karatelabs/karate" target="_blank">Pragma</a>.</h4>
 
 De aca en adelante encontraras las partes del readme con un pequeño ejemplo dentro de cada una de ellas, actualiza su contenido (no olvides borrar esta línea)
 
