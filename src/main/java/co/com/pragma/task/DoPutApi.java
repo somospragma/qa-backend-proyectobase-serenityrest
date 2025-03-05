@@ -4,27 +4,30 @@ import co.com.pragma.model.bodyrequests.models.UsuarioPostBodyRequest;
 import co.com.pragma.util.BaseHeaders;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.rest.interactions.Post;
+import net.serenitybdd.screenplay.rest.interactions.Put;
 import net.serenitybdd.screenplay.rest.questions.RestQueryFunction;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.util.EnvironmentVariables;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class DoPostApi implements Task {
+public class DoPutApi implements Task {
 
     private UsuarioPostBodyRequest bodyRequest;
+
+    private String user;
 
     @Managed
     private EnvironmentVariables environmentVariables;
 
-    public DoPostApi(UsuarioPostBodyRequest bodyRequest){
+    public DoPutApi(UsuarioPostBodyRequest bodyRequest, String user){
         this.bodyRequest = bodyRequest;
+        this.user = user;
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
         String endpoint = this.environmentVariables.optionalProperty("endpoints.reqres.getusers").orElse("/");
-
+        endpoint = endpoint + "/" + user;
         RestQueryFunction restConfiguration = requestSpecification -> {
             requestSpecification.headers(new BaseHeaders(this.environmentVariables).getBaseHeader());
             requestSpecification.body(bodyRequest);
@@ -38,11 +41,11 @@ public class DoPostApi implements Task {
         };
 
         actor.attemptsTo(
-                Post.to(endpoint).with(restConfiguration)
+                Put.to(endpoint).with(restConfiguration)
         );
     }
 
-    public static DoPostApi doPost(UsuarioPostBodyRequest bodyRequest){
-        return instrumented(DoPostApi.class, bodyRequest);
+    public static DoPutApi doPut(UsuarioPostBodyRequest bodyRequest, String user){
+        return instrumented(DoPutApi.class, bodyRequest, user);
     }
 }

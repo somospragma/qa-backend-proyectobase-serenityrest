@@ -9,10 +9,10 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class ResponseDoGetValitadion implements Task {
+public class ResponseDoGetValidation implements Task {
     private UsuariosGetModel data;
 
-    public ResponseDoGetValitadion (UsuariosGetModel data){
+    public ResponseDoGetValidation (UsuariosGetModel data){
         this.data = data;
     }
     @Override
@@ -42,7 +42,7 @@ public class ResponseDoGetValitadion implements Task {
         //Step 4: Implementation valitation from DB
     }
 
-    public static ResponseDoGetValitadion validate(UsuariosGetModel data){
-        return instrumented(ResponseDoGetValitadion.class, data);
+    public static ResponseDoGetValidation validate(UsuariosGetModel data){
+        return instrumented(ResponseDoGetValidation.class, data);
     }
 }

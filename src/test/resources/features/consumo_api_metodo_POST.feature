@@ -13,9 +13,9 @@ Característica: Consumo básico de un servicio con método POST
       | name   | job   | id   | createdAt   | statusResponse   |
       | <name> | <job> | <id> | <createdAt> | <statusResponse> |
     Ejemplos:
-      | name  | job        | id | createdAt | statusResponse |
-      | User  | Automation | OK | OK        | 201            |
-      #| null  | Automation | NA | NA        | 201            |
-      #| empty | Automation | NA | NA        | 201            |
-      #| User  | null       | NA | NA        | 201            |
-      #| User  | empty      | NA | NA        | 201            |
+      | testId    | name  | job        | id | createdAt | statusResponse |
+      | testId001 | User  | Automation | OK | OK        | 201            |
+      #| testId002 | null  | Automation | NA | NA        | 201            |
+      #| testId003 | empty | Automation | NA | NA        | 201            |
+      #| testId004 | User  | null       | NA | NA        | 201            |
+      #| testId005 | User  | empty      | NA | NA        | 201            |

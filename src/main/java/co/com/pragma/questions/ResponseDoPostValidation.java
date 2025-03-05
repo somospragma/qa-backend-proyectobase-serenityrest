@@ -1,7 +1,6 @@
 package co.com.pragma.questions;
 
 import co.com.pragma.model.UsuarioPostModel;
-import co.com.pragma.model.UsuariosGetModel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 
@@ -11,10 +10,10 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
-public class ResponseDoPostValitadion implements Task {
+public class ResponseDoPostValidation implements Task {
     private UsuarioPostModel data;
 
-    public ResponseDoPostValitadion(UsuarioPostModel data){
+    public ResponseDoPostValidation(UsuarioPostModel data){
         this.data = data;
     }
     @Override
@@ -28,13 +27,12 @@ public class ResponseDoPostValitadion implements Task {
         //HappyPath Validation...
         if(data.getStatusResponse().equals("200")) {
             actor.should(seeThatResponse("The json response body has the correct format",
-                    response -> response.body(matchesJsonSchemaInClasspath("schemas/post_response_hp_schema.json"))),
+                    response -> response.body(matchesJsonSchemaInClasspath("schemas/put_response_hp_schema.json"))),
                     seeThatResponse("The json response body has the correct information",
                             response -> response
                                     .body("name", equalTo(data.getName()))
                                     .body("job", equalTo(data.getJob()))
-                                    .body("id",notNullValue())
-                                    .body("createdAt", notNullValue())
+                                    .body("updatedAt", notNullValue())
                     ));
         }else{
             //implementation Full Error validation
@@ -42,7 +40,7 @@ public class ResponseDoPostValitadion implements Task {
         //Step 4: Implementation valitation from DB
     }
 
-    public static ResponseDoPostValitadion validate(UsuariosGetModel data){
-        return instrumented(ResponseDoPostValitadion.class, data);
+    public static ResponseDoPostValidation validate(UsuarioPostModel data){
+        return instrumented(ResponseDoPostValidation.class, data);
     }
 }

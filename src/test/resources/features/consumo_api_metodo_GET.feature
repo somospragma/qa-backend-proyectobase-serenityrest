@@ -13,5 +13,5 @@ Característica: Consumo básico de un servicio con método GET
       | page   | pageResponse   | per_page   | total   | total_pages   | data   | support   | url   | text   | statusResponse   |
       | <page> | <pageResponse> | <per_page> | <total> | <total_pages> | <data> | <support> | <url> | <text> | <statusResponse> |
     Ejemplos:
-      | page | pageResponse | per_page | total | total_pages | data | support | url                                                                             | text                                                                                  | statusResponse |
-      | 2    | 2            | 6        | 12    | 2           | OK   | OK      | https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral | Tired of writing endless social media content? Let Content Caddy generate it for you. | 200            |
+      | testId     | page | pageResponse | per_page | total | total_pages | data | support | url                                                                             | text                                                                                  | statusResponse |
+      | testId-001| 2    | 2            | 6        | 12    | 2           | OK   | OK      | https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral | Tired of writing endless social media content? Let Content Caddy generate it for you. | 200            |
