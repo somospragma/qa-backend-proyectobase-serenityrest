@@ -40,3 +40,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### sbteclipse plugin
+.target
+
+### Maven ###
+target/

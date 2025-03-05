@@ -1,6 +1,5 @@
 package co.com.pragma.model;
 
-import io.cucumber.messages.internal.com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class DataActualizadaModel {
 
@@ -8,7 +7,6 @@ public class DataActualizadaModel {
     private String lastname;
     private int totalprice;
     private boolean depositpaid;
-    @JsonIgnore
     private Bookingdate bookingdate;
     private String additionalneeds;
 
