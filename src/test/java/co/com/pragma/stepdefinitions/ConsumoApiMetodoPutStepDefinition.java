@@ -4,6 +4,7 @@ import co.com.pragma.model.UsuarioPostModel;
 import co.com.pragma.model.bodyrequests.generators.UsuarioPostBodyRequestGenerator;
 import co.com.pragma.model.bodyrequests.models.UsuarioPostBodyRequest;
 import co.com.pragma.questions.ResponseDoPostValidation;
+import co.com.pragma.questions.ResponseDoPutValidation;
 import co.com.pragma.task.DoPutApi;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.Cuando;
@@ -44,7 +45,7 @@ public class ConsumoApiMetodoPutStepDefinition {
     }
     @Entonces("Debe responder de manera correcta")
     public void debeResponderDeManeraCorrecta(UsuarioPostModel data) {
-        actor.attemptsTo(ResponseDoPostValidation.validate(data));
+        actor.attemptsTo(ResponseDoPutValidation.validate(data));
     }
 
 }

@@ -10,10 +10,10 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
-public class ResponseDoPostValidation implements Task {
+public class ResponseDoPutValidation implements Task {
     private UsuarioPostModel data;
 
-    public ResponseDoPostValidation(UsuarioPostModel data){
+    public ResponseDoPutValidation(UsuarioPostModel data){
         this.data = data;
     }
     @Override
@@ -25,15 +25,14 @@ public class ResponseDoPostValidation implements Task {
         //Step 2: Validation response with Schema
         // Step 3: BodyResponse Validation
         //HappyPath Validation...
-        if(data.getStatusResponse().equals("201")) {
+        if(data.getStatusResponse().equals("200")) {
             actor.should(seeThatResponse("The json response body has the correct format",
-                    response -> response.body(matchesJsonSchemaInClasspath("schemas/post_response_hp_schema.json"))),
+                    response -> response.body(matchesJsonSchemaInClasspath("schemas/put_response_hp_schema.json"))),
                     seeThatResponse("The json response body has the correct information",
                             response -> response
                                     .body("name", equalTo(data.getName()))
                                     .body("job", equalTo(data.getJob()))
-                                    .body("id", notNullValue())
-                                    .body("createdAt", notNullValue())
+                                    .body("updatedAt", notNullValue())
                     ));
         }else{
             //implementation Full Error validation
@@ -41,7 +40,7 @@ public class ResponseDoPostValidation implements Task {
         //Step 4: Implementation valitation from DB
     }
 
-    public static ResponseDoPostValidation validate(UsuarioPostModel data){
-        return instrumented(ResponseDoPostValidation.class, data);
+    public static ResponseDoPutValidation validate(UsuarioPostModel data){
+        return instrumented(ResponseDoPutValidation.class, data);
     }
 }
