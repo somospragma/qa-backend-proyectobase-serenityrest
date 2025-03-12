@@ -44,15 +44,15 @@ Proyecto donde hacemos uso de Serenity Rest para la automatización de servicios
 Para clonar está aplicación desde la linea de comando:
 
 ```bash
-git clone https://github.com/somospragma/qa-backend-serenity-screenplay-grpc.git
-cd qa-backend-serenity-screenplay-grpc
+git clone https://github.com/somospragma/qa-backend-proyectobase-serenityrest.git
+cd qa-backend-proyectobase-serenityrest
 git remote remove origin
 git remote add origin URL_DE_TU_NUEVO_REPOSITORIO
 git push -u origin master
 ```
 Nota: Asegúrate de reemplazar URL_DE_TU_NUEVO_REPOSITORIO con la URL del repositorio que creaste en tu cuenta de GitHub.
 
-Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-backend-serenity-screenplay-grpc) 
+Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-backend-proyectobase-serenityrest.git) 
 
 ## Estructura del proyecto
 El proyecto se desarrolló bajo el patrón de diseño de Screenplay, el cual obedece al siguiente esquema:
@@ -90,7 +90,7 @@ gradle command... -Denvironment=prod
 ## Autores
 
 
-| [<img src="https://gitlab.com/uploads/-/system/user/avatar/13437423/avatar.png?width=400" width=115><br><sub>Mauro L. Ibarra P.</sub>](https://gitlab.com/mauro.ibarrap) <br/> | [<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Otro autor</sub>](https://gitlab.com/) | 
+|[<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Dehiler Manuel Sepulveda V.</sub>](https://gitlab.com/) | 
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 
