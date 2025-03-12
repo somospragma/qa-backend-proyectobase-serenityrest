@@ -2,26 +2,15 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://f.hubspotusercontent20.net/hubfs/2829524/Copia%20de%20LOGOTIPO_original-2.png"></a>
   <br>
-  Proyecto base de serenityrest
+  Proyecto base de Serenityrest
   <br>
 </h1>
 
 <h4 align="center">Proyecto base de <a href="https://github.com/karatelabs/karate" target="_blank">Pragma</a>.</h4>
 
-De aca en adelante encontraras las partes del readme con un pequeño ejemplo dentro de cada una de ellas, actualiza su contenido (no olvides borrar esta línea)
-
 <p align="center">
   <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">
     <img src="https://img.shields.io/badge/Java-11+-orange.svg" alt="Java">
-  </a>
-  <a href="https://www.mysql.com/">
-    <img src="https://img.shields.io/badge/Database-MySQL-blue.svg" alt="MySQL">
-  </a>
-  <a href="https://www.postgresql.org/">
-    <img src="https://img.shields.io/badge/Database-PostgreSQL-blue.svg" alt="PostgreSQL">
-  </a>
-  <a href="https://www.w3schools.com/sql/">
-    <img src="https://img.shields.io/badge/SQL-Fundamentals-lightgrey.svg" alt="SQL">
   </a>
   <a href="https://cucumber.io/">
     <img src="https://img.shields.io/badge/Cucumber-BDD-green.svg" alt="Cucumber">
@@ -29,79 +18,56 @@ De aca en adelante encontraras las partes del readme con un pequeño ejemplo den
   <a href="https://serenity-bdd.info/">
     <img src="https://img.shields.io/badge/Serenity-Reporting-blueviolet.svg" alt="Serenity">
   </a>
-  <a href="https://www.selenium.dev/">
-    <img src="https://img.shields.io/badge/Selenium-Web_Testing-brightgreen.svg" alt="Selenium">
-  </a>
 </p>
 
 Proyecto donde hacemos uso de Serenity Rest para la automatización de servicios REST usando el patrón de ScreenPlay
 
-<p align="center">
-  <a href="#topicos">Topicos</a> •
-  <a href="#tecnologias">Tecnologias</a> •
-  <a href="#consideraciones">Consideraciones</a> •
-  <a href="#descarga">Descarga</a> •
-  <a href="#instalación-y-ejecución">Instalación y ejecución</a> •
-  <a href="#autores">Autores</a> •
-  <a href="#relacionados">Relacionados</a> •
-  <a href="#roadmap">Roadmap</a>
-</p>
-
-El siguiente GIF es de ejemplo, si tienes uno propio reemplazalo, de lo contrario eliminalo.
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
-
 ## Topicos
 
 * Java
-* Bases de datos
-* SQL
 * Cucumber
 * Serenity
+* RestAssured
 * Selenium
 
 ## Tecnologias
 ### This project required:
-- [JDK java] version 16
+- [JDK java] version 17+
 - [Serenity] version 4
 - [Gradle] last version
+- [RestAssured] version 3.6
+- [Cucumber] version 3.6
+- Screenplay desing pattern
 
-Nota: 
-*   Se requiere Selenium posterior a la version 4.11 para la descarga automatica de algunos drivers de los navegadores
-    La version de Serenity implementada (4.0.0) ya incluye Selenium 4.12 lo cual soporta los navegadores a Octubre del 2023
-    si el proyecto presenta problemas relacionados a las version del driver descargado de forma automatica y la version de su 
-    navegador vale la pena revisar que este trabajando con versiones recientes de Serenity y checkear las versiones de Selenium
-    incluidas en dicha version de Serenity
-*   Con Selenium Manager incluido en Serenity 4.0.0 ya no se requiere WebDriverManager de Boni Garcia, razon por la cual ya
-    serenity no lo incluye dentro de sus dependencias
-
-## Consideraciones
-- Para hacer uso de la la utilidad de Base de Datos es importante 
-        que se instacie una Base de datos y se configura en el archivo de configuración ubicado en:
-
-            ./src/main/resources/configs/congig.properties
-
-        En las dependencias del proyecto esta agregada la dependencia del driver de MySQL, si no 
-        desea realizar mayores ajustes respecto al motor de BD use MySQL. Si desea usar otro motor, 
-        adiciones la dependencia del driver al build.gradle y configure este driver como observa 
-        se realizo para MySQL en: 
-    
-            ./src/main/java/utils/ConectionBD.java
-        
-        Nota: Algunos motores de BD no requieren agregar la dependencia del driver como Oracle o MSserver
 
 ## Descarga
 Para clonar está aplicación desde la linea de comando:
 
 ```bash
-git clone https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java
-cd qa-transversal-proyecto-base-manejo-base-de-datos-java
+git clone https://github.com/somospragma/qa-backend-serenity-screenplay-grpc.git
+cd qa-backend-serenity-screenplay-grpc
 git remote remove origin
 git remote add origin URL_DE_TU_NUEVO_REPOSITORIO
 git push -u origin master
 ```
 Nota: Asegúrate de reemplazar URL_DE_TU_NUEVO_REPOSITORIO con la URL del repositorio que creaste en tu cuenta de GitHub.
 
-Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java) 
+Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-backend-serenity-screenplay-grpc) 
+
+## Estructura del proyecto
+El proyecto se desarrolló bajo el patrón de diseño de Screenplay, el cual obedece al siguiente esquema:
+
+Los casos de prueba se describen en la ruta src/test/resources/features en los archivos con extensión .feature en formato Given-When-Then, donde cada uno de los tres pasos que lo componen redireccionan a la definición de pasos en la ruta *src/test/java/co/com/pragma/stepdefinitions*
+
+Dentro de las clases Java de definición de pasos, cada uno de los pasos involucrados en su ejecución se describe utilizando las tareas especificadas en la ruta *src/main/java/co/com/pragma/task, donde estas tareas y definiciones de pasos a su vez hacen uso de widgets descritos en clases UI de Java especificadas en la ruta *src/main/java/co/com/pragma/userinterfaces * y también hacen uso de los modelos de conexión a bases de datos en la ruta *src/main/java/co/com/pragma/model. Algunas tareas también utilizan acciones generales descritas en la ruta *src/main/java/co/com/pragma/actions. En la definición de los pasos de validación denotados por el decorador @Then o en las validaciones intermedias en los pasos de acción denotados con el decorador @When, se utilizan clases de preguntas de Java para realizar validaciones. complejos que pueden ser reutilizados, estos se encuentran descritos en la ruta * *src/main/java/co/com/pragma/questions *, a su vez en pasos de validación se realiza la validación de la estructura del cuerpo de respuesta de los microservicios haciendo uso de esquemas JSON definidos en la ruta src/test/resources/schemas.
+
+En algunos archivos .feature se hace uso de clases Java de modelos de tablas de datos para pasar la información de cada caso de prueba a la definición de pasos con el fin de hacer uso de la misma de una manera más óptima y mantenible, estos modelos se encuentran descritos en la ruta *src/main/java/co/com/pragma/model/datatables*.
+
+De la misma manera las clases de definición de pasos Java hacen uso de constantes, métodos, funciones y métodos ejecutables como tareas ubicadas en la ruta *src/main/java/co/com/pragma/test/util*
+
+Al ejecutar casos de prueba de tipo Front o E2E, el proyecto descargará automáticamente la versión más reciente del driver de Chrome según el sistema operativo donde se esté ejecutando. Si esta operación de descarga falla, se envía a la ruta src/test/resources/webdriver, estos drivers deben ser actualizados manualmente por el automator. Estos drivers se pueden descargar desde la página oficial de descarga de Chromium.
+
+La ejecución de los casos de prueba se ordena por las clases Java de runners descritas en la ruta *src/test/java/co/com/pragma/runners*.
 
 ## Instalación y ejecución
 
@@ -110,40 +76,6 @@ Para ejecutar está aplicación, necesitas [Gradle](https://gradle.org/install) 
 ```
 gradle clean build
 ```
-
-##  🛠️ Run tests Chrome gradle:
-```
-gradle clean test -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test --info --stacktrace --tests "ruta.nameRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags @someTag" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags '@someTag or @someTag'" -Dcontext=chrome -Dwebdriver.driver=chrome
-```
-
-Nota:
-
-*   Si ejecuta en la consola de gradle no debe usar comillas simples '...' para encerrar '-Dwebdriver.driver=chrome'
-*   Si ejecuta en la consola estándar de la máquina quizás si deba utilizar '...' en las porciones del comando que incluyan puntos
-*   Con "./gradlew test ..." ejecuta el gradle compilado del proyecto
-*   Con "gradle test ..." ejecuta el gradle de su maquina, el configurado en las variables de entorno de su sistema operativo
-
-
-### ejemplo
-```
-./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.CompareImageRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
-./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
-```
-
-
-##  🛠️ Run tests Firefox gradle:
-```
-./gradlew clean test -Dcontext=firefox '-Dwebdriver.driver=firefox'
-./gradlew test --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
-```
-### ejemplo
-```
-./gradlew clean test --info --stacktrace --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
-```
-
 ## **Run tests in different environments:**
 ```
 gradle command... -Denvironment=defaul
@@ -154,15 +86,6 @@ gradle command... -Denvironment=prod
 ### Note: 
     - The default environment will be used if no other value is provided
     - Could modify the environment urls in .../test/resources/serenity.conf
-
-
-## **Run tests in different browser:**
-```
-gradle command... -Dwebdriver.driver=chrome
-gradle command... -Dwebdriver.driver=firefox
-gradle command... -Dwebdriver.driver=edge
-```
-
 
 ## Autores
 
@@ -179,4 +102,3 @@ gradle command... -Dwebdriver.driver=edge
 ## Roadmap
 
 - [Guia QA](https://github.com/amitmerchant1990/pomolectron) - (En construcción) Una guia de proyectos Orientados a la Calidad de Software
-
