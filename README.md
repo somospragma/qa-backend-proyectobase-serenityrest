@@ -90,7 +90,7 @@ gradle command... -Denvironment=prod
 ## Autores
 
 
-|[<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Dehiler Manuel Sepulveda V.</sub>](https://gitlab.com/) | 
+| [<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Dehiler M. Sepulveda V.</sub>](https://gitlab.com/mauro.ibarrap) <br/> ||
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 
